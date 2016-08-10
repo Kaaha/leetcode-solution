@@ -16,3 +16,24 @@ public class Solution1{
         return ans;
     }
 }
+
+//solution #2
+public class Solution2 {
+    public int lengthOfLongestSubstring(String s) {
+        int n=s.length();
+        Set<Character> set=new HashSet<>();
+        int i=0,j=0;
+        while(i<n && j<n){
+            char c=s.charAt(j);
+            if(set.contains(c)){
+                set.remove(c);
+                i++;
+            }else{
+                set.add(c);
+                ans=Math.max(ans,j-i);
+                j++;
+            }
+        }
+        return ans;
+    }
+}
