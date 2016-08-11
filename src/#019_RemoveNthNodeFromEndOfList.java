@@ -21,6 +21,7 @@ public class Solution1 {
         len-=n;
         while(len>0){
             p=p.next;
+            len--;
         }
         p.next=p.next.next;
         return dummy.next;
