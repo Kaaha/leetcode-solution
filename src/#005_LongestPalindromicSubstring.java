@@ -1,4 +1,4 @@
-//solution #2
+//solution #1
 public class Solution1 {
     public String longestPalindrome(String s) {
         int n=s.length();
@@ -25,5 +25,28 @@ public class Solution1 {
             }
         }
         return s.substring(begin,begin+maxLen);
+    }
+}
+
+//solution #2
+public class Solution2{
+    public String longestPalindrome(String s) {
+        int n=s.length();
+        if(n==0) return "";
+        String ans="";
+        for(int i=0;i<s.length()-1;i++) {
+            String s1=expandAroundCenter(s,i,i);
+            String s2=expandAroundCenter(s,i,i+1);
+            if(ans.length()<s1.length()) ans=s1;
+            if(ans.length()<s2.length()) ans=s2;
+        }
+        return ans;
+    }
+    private String expandAroundCenter(String s,int left,int right) {
+        int i=left,j=right;
+        while(i>=0 && j<s.length() && s.charAt(i)==s.charAt(j)){
+            i--;j++;
+        }
+        return s.substring(i+1,j);
     }
 }
