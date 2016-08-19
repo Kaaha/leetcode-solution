@@ -8,7 +8,7 @@ public class Solution {
                 sb[d].append(s.charAt(i));
             }
             
-            for(int u=numRows-1;u>=0 && i<n;u--) {
+            for(int u=numRows-2;u>= && i<n;u--) {
                 sb[u].append(s.charAt(i));
             }
         }
