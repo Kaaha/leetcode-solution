@@ -14,3 +14,17 @@ public class Solution1 {
         return dummy.next;
     }
 }
+
+//solution #2
+public class Solution2 {
+    public ListNode reverseList(ListNode head) {
+        ListNode newHead=null;
+        while(head!=null) {
+            ListNode next=head.next;
+            head.next=newHead;
+            newHead=head;
+            head=next;
+        }
+        return newHead;
+    }
+}
