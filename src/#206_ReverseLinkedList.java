@@ -28,3 +28,16 @@ public class Solution2 {
         return newHead;
     }
 }
+
+//solution #3
+public class Solution3 {
+    public ListNode reverseList(ListNode head) {
+        return reverseList(head,null);
+    }
+    private ListNode reverseList(ListNode head,ListNode newHead) {
+        if(head==null) return newHead;
+        ListNode next=head.next;
+        head.next=newHead;
+        return reverseList(next,head);
+    }
+}
