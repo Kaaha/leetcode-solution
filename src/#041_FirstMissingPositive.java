@@ -1,4 +1,5 @@
-public class Solution {
+//solution #1:with O(1) space
+public class Solution1 {
     public int firstMissingPositive(int[] nums) {
         int n=nums.length;
         for(int i=0;i<n;i++) {
@@ -13,5 +14,17 @@ public class Solution {
         int t=nums[i];
         nums[i]=nums[j];
         nums[j]=t;
+    }
+}
+
+//solution #2:with O(n) space
+public class Solution2 {
+    int firstMissingPositive(int[] nums) {
+        int n=nums.length;
+        BitSet bit=new BitSet();
+        for(int i=0;i<n;i++) {
+            if(nums[i]>0) bit.set(nums[i]);
+        }
+        return bit.nextClearBit(1);
     }
 }
