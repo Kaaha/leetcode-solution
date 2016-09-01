@@ -82,3 +82,28 @@ public class Solution2 {
         return ans.length()==0?"0":ans.toString();
     }
 }
+
+//solution #3
+public class Solution3 {
+    public String multiply(String num1,String num2) {
+        char[] c1=num1.toCharArray();
+        char[] c2=num2.toCharArray();
+        int m=num1.length(),n=num2.length();
+        int[] pos=new int[m+n];
+        for(int i=m-1;i>=0;i--) {
+            for(int j=n-1;j>=0;j--) {
+                pos[i+j+1]+=c1[i]*c2[j];
+            }
+        }
+        for(int i=m+n-1;i>0;i--) {
+            pos[i-1]+=pos[i]/10;
+            pos[i]%=10;
+        }
+        StringBuilder ans=new StringBuilder();
+        for(int a:pos) {
+            if(a==0 && ans.length()==0) continue;
+            ans.append(a);
+        }
+        return ans.length()==0?"0":ans.toString();
+    }
+}
