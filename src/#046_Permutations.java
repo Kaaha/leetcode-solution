@@ -1,4 +1,25 @@
-public class Solution {
+//solution #1
+public class Solution1 {
+    public List<List<Integer>> permute(int[] nums) {
+        LinkedList<List<Integer>> ans=new LinkedList<List<Integer>>();
+        ans.add(new ArrayList<Integer>());
+        for(int n:nums) {
+            int len=ans.size();
+            for(;len>0;len--) {
+                List<Integer> list=ans.pollFirst();
+                for(int i=0;i<=list.size();i++) {
+                    List<Integer> t=new ArrayList<>(list);
+                    t.add(i,n);
+                    ans.add(t);
+                }
+            }
+        }
+        return ans;
+    }
+}
+
+//solution #2
+public class Solution2 {
     private List<List<Integer>> ans;
     public List<List<Integer>> permute(int[] nums) {
         ans=new ArrayList<>();
