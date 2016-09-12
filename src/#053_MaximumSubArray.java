@@ -1,4 +1,4 @@
-//solution #1:dynamic programming
+//solution #1:dynamic programming with O(n) space
 public class Solution1 {
     public int maxSubArray(int[] nums) {
         int n=nums.length;
@@ -13,8 +13,22 @@ public class Solution1 {
     }
 }
 
-//solution #2:divide and conquer
+//solution #3:dynamic programming with O(1) space
 public class Solution2 {
+    public int maxSubArray(int[] nums) {
+        int n=nums.length;
+        int ans=nums[0];
+        int sum=0;
+        for(int i=0;i<n;i++) {
+            sum+=nums[i];
+            ans=Math.max(ans,sum);
+            sum=Math.sum(sum,0);
+        }
+        return ans;
+    }
+}
+//solution #3:divide and conquer
+public class Solution3 {
     public int maxSubArray(int[] nums) {
         int n=nums.length;
         
