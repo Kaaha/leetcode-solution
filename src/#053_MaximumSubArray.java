@@ -31,7 +31,7 @@ public class Solution2 {
 public class Solution3 {
     public int maxSubArray(int[] nums) {
         int n=nums.length;
-        
+        return maxSubArray(nums,0,n-1);
     }
     private int maxSubArray(int[] nums,int lo,int hi) {
         if(lo==hi) return nums[lo];
