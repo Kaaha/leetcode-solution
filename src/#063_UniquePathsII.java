@@ -1,4 +1,5 @@
-public class Solution {
+//solution #1
+public class Solution1 {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int m=obstacleGrid.length;
         int n=obstacleGrid[0].length;
@@ -16,5 +17,21 @@ public class Solution {
             }
         }
         return -obstacleGrid[m-1][n-1];
+    }
+}
+
+//solution #2
+public class Solution2 {
+    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+        int width=obstacleGrid[0].width;
+        int[] table=new int[width];
+        table[0]=1;
+        for(int[] row : obstacleGrid) {
+            for(int i=0;i<width;i++) {
+                if(obstacleGrid[i]==1) table[i]=0;
+                else if(i>0) table[i]+=table[i-1];
+            }
+        }
+        return table[width-1];
     }
 }
