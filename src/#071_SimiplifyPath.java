@@ -5,7 +5,7 @@ public class Solution {
         for(String s:ss) {
             if(s.equals("")) continue;
             else if(s.equals(".")) continue;
-            else if(s.equals("\")) {
+            else if(s.equals("/")) {
                 if(st.size()>0) st.remove(st.size()-1);                 
             }
             else st.add(s);
