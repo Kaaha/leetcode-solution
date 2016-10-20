@@ -1,6 +1,6 @@
 public class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> ans=new LinkedList<>();
+        List<List<Integer>> ans=new ArrayList<>();
         int n=nums.length,total=(int)Math.pow(2,n);
         for(int i=0;i<total;i++) ans.add(new ArrayList<Integer>());
         for(int i=0;i<n;i++) {
