@@ -1,9 +1,19 @@
 public class Solution {
-    public int removeDupllicates(int[] nums) {
+    public int removeDuplicates(int[] nums) {
         int i=0;
         for(int n:nums) {
             if(i<2 || n>nums[i-2])
                 nums[i++]=n;
+        }
+        return i;
+    }
+}
+
+public class Solution {
+    public int removeDuplicates(int[] nums) {
+        int i=0,n=nums.length;
+        for(int j=0;j<n;j++) {
+            if(j<2 || nums[j]>nums[i-2]) nums[i++]=nums[j];
         }
         return i;
     }
